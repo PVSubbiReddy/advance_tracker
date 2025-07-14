@@ -1,0 +1,15 @@
+# sudo cat /etc/systemd/system/streamlit.service
+[Unit]
+Description=Streamlit App
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/projects/lf-customer-support-py
+ExecStart=/home/ubuntu/.pyenv/versions/3.12.3/envs/lf_customer_support/bin/streamlit run main.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
